@@ -5,7 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - CircleTower
+  - SquareTower
   - Tower
+  - Waypoints
   layers:
   - Default
   - TransparentFX
