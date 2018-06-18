@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\EnemyBehavior.cs" />
+    <Compile Include="Assets\Scripts\SpawnEnemy.cs" />
     <Compile Include="Assets\Scripts\TowerBehavior.cs" />
     <Compile Include="Assets\Scripts\Waypoints.cs" />
     <Reference Include="UnityEditor.StandardEvents">
