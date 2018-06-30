@@ -5,13 +5,11 @@
 /// Should later be changed to abstract class.
 /// A class to be inherited by every enemy. Does various functions in the game such as follows a predefined path and taking damage.
 /// </summary>
-public class EnemyBehavior : MonoBehaviour
-{
+public class EnemyBehavior : MonoBehaviour {
     public float speed;
     private Waypoints Wpoints;
     private int wayPointIndex = 0;
-    public float enemyhealth = 6f;
-    private float damage = 0f;
+    public float health = 6f;
     public float rateOfDamage = 0.2f;
 
 
@@ -19,16 +17,14 @@ public class EnemyBehavior : MonoBehaviour
     private Rigidbody2D rb2d;
 
     // Use this for initialization
-    void Start()
-    {
+    void Start() {
         rb2d = GetComponent<Rigidbody2D>();
         Wpoints = GameObject.FindGameObjectWithTag("Waypoints").GetComponent<Waypoints>();
 
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         transform.position = Vector2.MoveTowards(transform.position, Wpoints.waypoints[wayPointIndex].position, speed * Time.deltaTime);
 
 
@@ -45,42 +41,17 @@ public class EnemyBehavior : MonoBehaviour
                 Destroy(gameObject); //TODO: decrease player's score
             }
         }
-       
+
     }
 
 
-    public void AddDamage()
-    {
-
-
-        if (gameObject.tag == "Enemy") {
-            enemyhealth -= damage;
-        }
-
-
-        if (enemyhealth <= 0) {
+    public void AddDamage(float damage) {
+        health -= damage;
+        //Debug.Log("I just took damage :(");
+        if (health <= 0) {
             Destroy(gameObject);
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "CircleTower") {
-            damage = TowerBehavior.circleDamage;
-            InvokeRepeating("AddDamage", 0, rateOfDamage);
-        } else if (other.gameObject.tag == "SquareTower") {
-            damage = TowerBehavior.squareDamage;
-            InvokeRepeating("AddDamage", 0, rateOfDamage);
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        damage = 0f;
-    }
-
-    public void instantiate()
-    {
-        GameObject enemyCircle = (GameObject)Instantiate(Resources.Load("EnemyCircle"));
-    }
 }
 

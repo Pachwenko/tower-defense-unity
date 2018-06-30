@@ -61,8 +61,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Damageable.cs" />
+    <Compile Include="Assets\Scripts\Damager.cs" />
     <Compile Include="Assets\Scripts\EnemyBehavior.cs" />
-    <Compile Include="Assets\Scripts\SpawnEnemy.cs" />
+    <Compile Include="Assets\Scripts\SpawnCircle.cs" />
+    <Compile Include="Assets\Scripts\SpawnSquare.cs" />
     <Compile Include="Assets\Scripts\TowerBehavior.cs" />
     <Compile Include="Assets\Scripts\Waypoints.cs" />
     <Reference Include="UnityEditor.StandardEvents">
