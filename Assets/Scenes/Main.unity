@@ -635,30 +635,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 798137568}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 371c6ed265cedc44c8caf1d4d21b4291, type: 3}
+  m_Script: {fileID: 11500000, guid: 712c501b6bb54684389ed0ff65f67ffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 5
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1443896458818768, guid: 8c3324b9a34191c449892e7419b8ca22,
-            type: 2}
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  delegates: []
-  prefabTower: {fileID: 0}
+  dragOnSurfaces: 1
+  prefab: {fileID: 1443896458818768, guid: 8c3324b9a34191c449892e7419b8ca22, type: 2}
 --- !u!1 &829729759
 GameObject:
   m_ObjectHideFlags: 0
