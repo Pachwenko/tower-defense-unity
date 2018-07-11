@@ -7,7 +7,7 @@
 /// </summary>
 public class EnemyBehavior : MonoBehaviour {
     public float speed;
-    private Waypoints Wpoints;
+    private WaypointHolder Wpoints;
     private int wayPointIndex = 0;
     public float health = 6f;
     public float rateOfDamage = 0.2f;
@@ -19,7 +19,7 @@ public class EnemyBehavior : MonoBehaviour {
     // Use this for initialization
     void Start() {
         rb2d = GetComponent<Rigidbody2D>();
-        Wpoints = GameObject.FindGameObjectWithTag("Waypoints").GetComponent<Waypoints>();
+        Wpoints = GameObject.FindGameObjectWithTag("Waypoints").GetComponent<WaypointHolder>();
 
     }
 

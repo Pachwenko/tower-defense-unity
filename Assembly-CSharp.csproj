@@ -61,18 +61,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\CreateLevel.cs" />
     <Compile Include="Assets\Scripts\Damageable.cs" />
     <Compile Include="Assets\Scripts\Damager.cs" />
+    <Compile Include="Assets\Scripts\DragMe.cs" />
     <Compile Include="Assets\Scripts\EnemyBehavior.cs" />
+    <Compile Include="Assets\Scripts\OnDragExample.cs" />
     <Compile Include="Assets\Scripts\SpawnCircle.cs" />
     <Compile Include="Assets\Scripts\SpawnSquare.cs" />
     <Compile Include="Assets\Scripts\TowerBehavior.cs" />
-    <Compile Include="Assets\Scripts\Waypoints.cs" />
+    <Compile Include="Assets\Scripts\WaypointHolder.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/pmccart/Dropbox/Projects/GitCache/tower-defense-unity/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.TextMeshPro.Editor">
+      <HintPath>C:/Users/pmccart/Dropbox/Projects/GitCache/tower-defense-unity/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
       <HintPath>C:/Users/pmccart/Dropbox/Projects/GitCache/tower-defense-unity/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>C:/Users/pmccart/Dropbox/Projects/GitCache/tower-defense-unity/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.1.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -271,9 +280,6 @@
     </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>C:/Users/pmccart/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Purchasing">
-      <HintPath>C:/Users/pmccart/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.purchasing@2.0.1/UnityEngine.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/pmccart/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
