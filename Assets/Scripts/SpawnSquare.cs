@@ -5,7 +5,7 @@ public class SpawnSquare : MonoBehaviour {
 
     public void instantiate()
     {
-        GameObject enemyCircle = (GameObject)Instantiate(Resources.Load("EnemySquare"));
+        Instantiate(Resources.Load("EnemySquare"));
     }
 	
 }

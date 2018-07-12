@@ -64,7 +64,9 @@
     <Compile Include="Assets\Scripts\CreateLevel.cs" />
     <Compile Include="Assets\Scripts\Damageable.cs" />
     <Compile Include="Assets\Scripts\Damager.cs" />
+    <Compile Include="Assets\Scripts\DragHandler.cs" />
     <Compile Include="Assets\Scripts\DragMe.cs" />
+    <Compile Include="Assets\Scripts\DropHandler.cs" />
     <Compile Include="Assets\Scripts\EnemyBehavior.cs" />
     <Compile Include="Assets\Scripts\OnDragExample.cs" />
     <Compile Include="Assets\Scripts\SpawnCircle.cs" />

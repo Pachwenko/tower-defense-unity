@@ -18,7 +18,6 @@ public class EnemyBehavior : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        rb2d = GetComponent<Rigidbody2D>();
         Wpoints = GameObject.FindGameObjectWithTag("Waypoints").GetComponent<WaypointHolder>();
 
     }
