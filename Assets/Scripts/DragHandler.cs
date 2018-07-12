@@ -3,20 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DragHandler : MonoBehaviour, IDragHandler, IEndDragHandler {
+public class DragHandler : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler {
 
-    private Vector3 originalPosition;
+    public GameObject prefab;
+    public static GameObject itemBeingDragged;
+    private Vector3 startPosition;
+    private Transform startParent;
 
+
+    public void OnBeginDrag(PointerEventData eventData) {
+        itemBeingDragged = gameObject;
+        startPosition = transform.position;
+        startParent = transform.parent;
+        //GetComponent<CanvasGroup>().blocksRaycasts = false;
+
+    }
     public void OnDrag(PointerEventData eventData) {
         transform.position = eventData.position;
     }
 
     public void OnEndDrag(PointerEventData eventData) {
-        transform.localPosition = originalPosition;
-    }
+        itemBeingDragged = null;
+        // GetComponent<CanvasGroup>().blocksRaycasts = true;
+        transform.position = startPosition;
+        GameObject clone = Instantiate(prefab);
+        Vector3 newPosition = Camera.main.ScreenToWorldPoint(eventData.position);
+        clone.transform.position = new Vector3(newPosition.x, newPosition.y);
 
-    void start() {
-        originalPosition = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
-        Debug.Log(originalPosition);
+
     }
 }
