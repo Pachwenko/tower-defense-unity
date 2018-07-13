@@ -78,6 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerDamage: 5
+  costTextObject: {fileID: 0}
 --- !u!212 &212226429667189390
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -110,7 +111,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 973760045
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a5b061c4e5ec38c4b8d46cd6fce0f241, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

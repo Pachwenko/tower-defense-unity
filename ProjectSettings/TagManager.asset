@@ -4,11 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
+  - Waypoints
   - CircleTower
   - SquareTower
-  - Tower
-  - Waypoints
+  - LivesText
+  - MoneyText
   layers:
   - Default
   - TransparentFX
@@ -18,14 +18,14 @@ TagManager:
   - UI
   - 
   - 
-  - Background
-  - Road
-  - Tower
-  - Enemy
-  - 
-  - 
-  - 
-  - 
+  - PlacementLayer
+  - PlacementGhosts
+  - Towers
+  - GroundEnemies
+  - FriendlyProjectiles
+  - EnemyProjectiles
+  - FlyingEnemies
+  - GroundEnemyTargettingProjectiles
   - 
   - 
   - 
@@ -45,7 +45,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Enemies
-    uniqueID: 973760045
     locked: 0

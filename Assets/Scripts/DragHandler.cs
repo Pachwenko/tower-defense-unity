@@ -8,13 +8,17 @@ public class DragHandler : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginD
     public GameObject prefab;
     public static GameObject itemBeingDragged;
     private Vector3 startPosition;
-    private Transform startParent;
-
+    private GameController gameController;
 
     public void OnBeginDrag(PointerEventData eventData) {
+        GameObject gameControllerObject = GameObject.FindGameObjectWithTag("GameController");
+        gameController = gameControllerObject.GetComponent<GameController>();
+        if (gameController == null) {
+            Debug.Log("Could not find 'GameController' scipt");
+        }
+
         itemBeingDragged = gameObject;
         startPosition = transform.position;
-        startParent = transform.parent;
         //GetComponent<CanvasGroup>().blocksRaycasts = false;
 
     }
@@ -26,10 +30,12 @@ public class DragHandler : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginD
         itemBeingDragged = null;
         // GetComponent<CanvasGroup>().blocksRaycasts = true;
         transform.position = startPosition;
-        GameObject clone = Instantiate(prefab);
-        Vector3 newPosition = Camera.main.ScreenToWorldPoint(eventData.position);
-        clone.transform.position = new Vector3(newPosition.x, newPosition.y);
-
-
+        if (gameController.MoneyWithdrawlOrDeposit(-1 * prefab.GetComponent<TowerBehavior>().getCost())) {
+            GameObject clone = Instantiate(prefab);
+            Vector3 newPosition = Camera.main.ScreenToWorldPoint(eventData.position);
+            clone.transform.position = new Vector3(newPosition.x, newPosition.y);
+        } else {
+            //do nothing cause u cant afford a new tower
+        }
     }
 }

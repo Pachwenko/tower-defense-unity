@@ -7,10 +7,12 @@
 /// </summary>
 public class EnemyBehavior : MonoBehaviour {
     public float speed;
-    private WaypointHolder Wpoints;
     private int wayPointIndex = 0;
     public float health = 6f;
     public float rateOfDamage = 0.2f;
+    private WaypointHolder Wpoints;
+    private GameController gameController;
+
 
 
 
@@ -18,8 +20,13 @@ public class EnemyBehavior : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+        GameObject gameControllerObject = GameObject.FindGameObjectWithTag("GameController");
+        gameController = gameControllerObject.GetComponent<GameController>();
+        if (gameController == null) {
+            Debug.Log("Could not find 'GameController' scipt");
+        }
         Wpoints = GameObject.FindGameObjectWithTag("Waypoints").GetComponent<WaypointHolder>();
-
+        transform.position = Wpoints.waypoints[0].position;
     }
 
     // Update is called once per frame
@@ -37,7 +44,8 @@ public class EnemyBehavior : MonoBehaviour {
             if (wayPointIndex < Wpoints.waypoints.Length - 1) {
                 wayPointIndex += 1;
             } else {
-                Destroy(gameObject); //TODO: decrease player's score
+                Destroy(gameObject);
+                gameController.UpdateLives(1);
             }
         }
 
