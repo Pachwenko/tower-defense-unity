@@ -7,11 +7,14 @@
 /// </summary>
 public class EnemyBehavior : MonoBehaviour {
     public float speed;
-    private int wayPointIndex = 0;
-    public float health = 6f;
-    public float rateOfDamage = 0.2f;
+    public float health;
+    public float rateOfDamage;
+    public int worth;
+
     private WaypointHolder Wpoints;
     private GameController gameController;
+    private int wayPointIndex = 0;
+
 
 
 
@@ -56,6 +59,7 @@ public class EnemyBehavior : MonoBehaviour {
         health -= damage;
         //Debug.Log("I just took damage :(");
         if (health <= 0) {
+            gameController.MoneyWithdrawlOrDeposit(worth);
             Destroy(gameObject);
         }
     }

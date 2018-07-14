@@ -9,21 +9,21 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1647512346688558}
+  m_RootGameObject: {fileID: 1854060649651156}
   m_IsPrefabParent: 1
---- !u!1 &1647512346688558
+--- !u!1 &1854060649651156
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 224459648395305424}
-  - component: {fileID: 212226429667189390}
-  - component: {fileID: 58632402567735098}
-  - component: {fileID: 114667055111271506}
-  - component: {fileID: 50503751378741736}
-  - component: {fileID: 222311663084328538}
+  - component: {fileID: 224810307798545840}
+  - component: {fileID: 212062447396869738}
+  - component: {fileID: 58526465491299858}
+  - component: {fileID: 114591640493427892}
+  - component: {fileID: 50424897411125356}
+  - component: {fileID: 222786735991417390}
   m_Layer: 10
   m_Name: TowerCircle
   m_TagString: CircleTower
@@ -31,13 +31,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!50 &50503751378741736
+--- !u!50 &50424897411125356
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1647512346688558}
+  m_GameObject: {fileID: 1854060649651156}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -51,12 +51,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &58632402567735098
+--- !u!58 &58526465491299858
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1647512346688558}
+  m_GameObject: {fileID: 1854060649651156}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -66,25 +66,28 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 8.5
---- !u!114 &114667055111271506
+--- !u!114 &114591640493427892
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1647512346688558}
+  m_GameObject: {fileID: 1854060649651156}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93ca778d29fead145b3574d99448cd5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   towerDamage: 5
-  costTextObject: {fileID: 0}
---- !u!212 &212226429667189390
+  cost: 120
+  projectilePrefab: {fileID: 1870706275158406, guid: d210905d99dd5f349a37123bd78bcecd,
+    type: 2}
+  spawnTimer: 0.5
+--- !u!212 &212062447396869738
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1647512346688558}
+  m_GameObject: {fileID: 1854060649651156}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -123,18 +126,18 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!222 &222311663084328538
+--- !u!222 &222786735991417390
 CanvasRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1647512346688558}
---- !u!224 &224459648395305424
+  m_GameObject: {fileID: 1854060649651156}
+--- !u!224 &224810307798545840
 RectTransform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1647512346688558}
+  m_GameObject: {fileID: 1854060649651156}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -144,6 +147,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 218.77783, y: 211}
+  m_AnchoredPosition: {x: -2.0523431, y: 2.9043841}
   m_SizeDelta: {x: 2.56, y: 2.56}
   m_Pivot: {x: 0.5, y: 0.5}

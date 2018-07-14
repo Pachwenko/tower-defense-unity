@@ -35,7 +35,7 @@ public class DragHandler : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginD
             Vector3 newPosition = Camera.main.ScreenToWorldPoint(eventData.position);
             clone.transform.position = new Vector3(newPosition.x, newPosition.y);
         } else {
-            //do nothing cause u cant afford a new tower
+            //do nothing because you can't afford a new tower
         }
     }
 }
