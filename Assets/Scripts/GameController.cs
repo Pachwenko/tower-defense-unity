@@ -8,7 +8,6 @@ public class GameController : MonoBehaviour {
     public int lives;
     public int money;
 
-    private int wave;
     private WaypointHolder firstPoint;
     private Vector3 spawnPosition;
 

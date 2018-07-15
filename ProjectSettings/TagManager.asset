@@ -9,6 +9,7 @@ TagManager:
   - SquareTower
   - LivesText
   - MoneyText
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -45,4 +46,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: 1HigherThanDefault
+    uniqueID: 3926623941
     locked: 0

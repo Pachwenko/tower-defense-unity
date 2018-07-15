@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93ca778d29fead145b3574d99448cd5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerDamage: 5
+  towerDamage: 8
   cost: 120
   projectilePrefab: {fileID: 1870706275158406, guid: d210905d99dd5f349a37123bd78bcecd,
     type: 2}
@@ -113,8 +113,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 973760045
-  m_SortingLayer: 0
+  m_SortingLayerID: -368343355
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a5b061c4e5ec38c4b8d46cd6fce0f241, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -72,10 +72,8 @@ public class TowerBehavior : MonoBehaviour {
             Vector3 dir = firstEnemy.gameObject.transform.position - transform.position;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            //This line did not help: Physics2D.IgnoreCollision(projectile.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
             projectile.GetComponent<Rigidbody>().AddForce(transform.right * 1000.0f);
-            //projectile.GetComponent<Rigidbody>().AddForce(transform.forward * 10000000.0f);
-            Destroy(projectile, 4.0f);
+            Destroy(projectile, 1.0f);
         }
     }
 }
