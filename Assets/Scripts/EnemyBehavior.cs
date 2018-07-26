@@ -8,18 +8,11 @@
 public class EnemyBehavior : MonoBehaviour {
     public float speed;
     public float health;
-    public float rateOfDamage;
     public int worth;
 
     private WaypointHolder Wpoints;
     private GameController gameController;
     private int wayPointIndex = 0;
-
-
-
-
-
-    private Rigidbody2D rb2d;
 
     // Use this for initialization
     void Start() {
@@ -29,14 +22,17 @@ public class EnemyBehavior : MonoBehaviour {
             Debug.Log("Could not find 'GameController' scipt");
         }
         Wpoints = GameObject.FindGameObjectWithTag("Waypoints").GetComponent<WaypointHolder>();
-        Physics2D.IgnoreLayerCollision(0, 15);
+        //This didn't do anything: Physics2D.IgnoreLayerCollision(0, 15);
         transform.position = Wpoints.waypoints[0].position;
     }
 
     // Update is called once per frame
     void Update() {
         transform.position = Vector2.MoveTowards(transform.position, Wpoints.waypoints[wayPointIndex].position, speed * Time.deltaTime);
-
+        if (health <= 0) {
+            gameController.MoneyWithdrawlOrDeposit(worth);
+            Destroy(this.gameObject);
+        }
 
         if (Vector2.Distance(transform.position, Wpoints.waypoints[wayPointIndex].position) < 0.1f) {
             //rotates the sprite to look at the next waypoint
@@ -65,5 +61,33 @@ public class EnemyBehavior : MonoBehaviour {
         }
     }
 
+    public float getHealth()
+    {
+        return health;
+    }
+
+    public void setHealth(float newHealth) {
+        health = newHealth;
+    }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("projectile"))
+        {
+            float damageToTake = other.GetComponent<ProjectileBehavior>().damage;
+            health -= damageToTake;
+        }
+        //Debug.Log("hey I entered your collider");
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("projectile"))
+        {
+            float damageToTake = other.GetComponent<ProjectileBehavior>().damage;
+            health -= damageToTake;
+        }
+        //Debug.Log("hey I entered your collider");
+    }
 }
 

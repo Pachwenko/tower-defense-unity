@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using UnityEngine.UI;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 /// Class to be inherited by the Towers. Used to set various propertys and perhaps do some functions.
@@ -12,23 +9,22 @@ public class TowerBehavior : MonoBehaviour {
     //May appear not to work if enemy's health is too high and/or towerDamage is too low
     public int cost;
     public GameObject projectilePrefab;
-    public float spawnTimer;
+    public float fireSpawnRate;
+    public int leadingProjectileOffset = 15;
+    public float projectileSpeed = 2500.0f;
 
-    private float spawnTimerReset;
+    private float fireSpawnRateReset;
     private Collider2D firstEnemy;
 
     // Use this for initialization
     void Start() {
-        spawnTimerReset = spawnTimer;
-
+        fireSpawnRateReset = fireSpawnRate;
     }
 
     // Update is called once per frame
     void Update() {
-        SendDamage();
-        spawnTimer -= Time.deltaTime;
-
-
+        fireProjectile();
+        fireSpawnRate -= Time.deltaTime;
     }
 
     public void OnTriggerEnter2D(Collider2D other) {
@@ -37,7 +33,6 @@ public class TowerBehavior : MonoBehaviour {
                 firstEnemy = other;
             }
         }
-        //Debug.Log("hey I'm in your collider");
     }
 
     public void OnTriggerStay2D(Collider2D other) {
@@ -46,35 +41,34 @@ public class TowerBehavior : MonoBehaviour {
                 firstEnemy = other;
             }
         }
-        //Debug.Log("Sent damage: " + towerDamage * Time.deltaTime);
     }
 
     public void OnTriggerExit2D(Collider2D other) {
         firstEnemy = null;
-        //Debug.Log("Sent damage: " + towerDamage * Time.deltaTime);
     }
 
     public int getCost() {
         return cost;
     }
 
-    private void SendDamage() {
-        if (firstEnemy != null) {
-            firstEnemy.SendMessage("AddDamage", towerDamage * Time.deltaTime);
-            fireProjectile();
+
+    private void fireProjectile() {
+        if (fireSpawnRate < 0 && firstEnemy != null)
+        {
+            fireSpawnRate = fireSpawnRateReset;
+            RotateTowardsEnemy();
+            GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity) as GameObject;
+            projectile.GetComponent<Rigidbody2D>().AddForce(transform.right * projectileSpeed);
+            //Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), projectile.GetComponent<Collider2D>());
+            Destroy(projectile, 1.0f);
         }
     }
 
-    private void fireProjectile() {
-        if (spawnTimer < 0 && firstEnemy != null) {
-            spawnTimer = spawnTimerReset;
-            GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity) as GameObject;
-            Vector3 dir = firstEnemy.gameObject.transform.position - transform.position;
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            projectile.GetComponent<Rigidbody>().AddForce(transform.right * 1000.0f);
-            Destroy(projectile, 1.0f);
-        }
+    private void RotateTowardsEnemy()
+    {
+        Vector3 dir = firstEnemy.gameObject.transform.position - transform.position;
+        float angle = (Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg) + leadingProjectileOffset;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 }
 

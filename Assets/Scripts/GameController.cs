@@ -5,6 +5,7 @@ public class GameController : MonoBehaviour {
 
     public GameObject livesTextObject;
     public GameObject moneyTextObject;
+    public GameObject gameOverButtonText;
     public int lives;
     public int money;
 
@@ -14,6 +15,7 @@ public class GameController : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+        gameOverButtonText.SetActive(false);
         firstPoint = GameObject.FindGameObjectWithTag("Waypoints").GetComponent<WaypointHolder>();
         spawnPosition = firstPoint.waypoints[0].position;
         UpdateLives(0);
@@ -39,7 +41,7 @@ public class GameController : MonoBehaviour {
         lives -= livesLost;
         livesTextObject.GetComponent<Text>().text = "" + lives;
         if (lives < 0) {
-            //TODO: END THE GAME
+            GameOver();
             Debug.Log("End of the game reached");
         }
     }
@@ -58,5 +60,10 @@ public class GameController : MonoBehaviour {
             //wwhatever calls this and decreases money value needs to handle this
             return false;
         }
+    }
+
+    public void GameOver() {
+        gameOverButtonText.SetActive(true);
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<WaveManager>().setGameOver(true);
     }
 }
